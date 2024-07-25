@@ -24,7 +24,7 @@ with mp_hands.Hands(
         results = hands.process(image)
 
         image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
-
+        
         if results.multi_hand_landmarks:
             for hand_landmarks in results.multi_hand_landmarks:
                 mp_drawing.draw_landmarks(image, hand_landmarks, mp_hands.HAND_CONNECTIONS)
@@ -37,7 +37,7 @@ with mp_hands.Hands(
         if results.multi_hand_world_landmarks:
             for hand_world_landmarks in results.multi_hand_world_landmarks:
                 for id, lm in enumerate(hand_world_landmarks.landmark):
-                    print(f'世界座標系 - Landmark {id}: (X: {lm.x}, Y: {lm.y}, Z: {lm.z})')
+                    print(f'世界座標系 - Landmark {id}: (X: {int(lm.x * 1000)}, Y: {int(lm.y * 1000)}, Z: {int(lm.z * 1000)})')
                     #print('none')
 
 
