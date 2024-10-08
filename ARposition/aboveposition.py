@@ -4,7 +4,7 @@ import numpy as np
 
 aruco = cv2.aruco
 p_dict = aruco.getPredefinedDictionary(aruco.DICT_4X4_50)
-img = cv2.imread('Naname.jpeg')
+img = cv2.imread('Naname.jpg')
 corners, ids, rejectedImgPoints = aruco.detectMarkers(img, p_dict) # 検出
 
 # 時計回りで左上から順にマーカーの「中心座標」を m に格納
