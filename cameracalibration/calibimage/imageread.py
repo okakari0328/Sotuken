@@ -4,14 +4,18 @@ import time
 cap = cv2.VideoCapture(0)
 captureimage = 0
 while captureimage < 15:
-  
+  startSec = time.time()
+
+  # 1.5 秒 止める
+  time.sleep(3)
+
   # 画像をキャプチャする
   ret, frame = cap.read()
   
   # 画像を保存する
-  cv2.imwrite("image.jpg", frame)
+  cv2.imwrite("image1.jpg", frame)
 
-
+  captureimage += 1
 
 # カメラを閉じる
 cap.release()
