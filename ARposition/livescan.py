@@ -35,6 +35,7 @@ while True:
     if ids is not None:
         frame = aruco.drawDetectedMarkers(frame, corners, ids)
         print(f"検出されたマーカーID: {ids.flatten()}")
+        print(corners)
 
     # フレームを表示
     cv2.imshow('frame', frame)
