@@ -5,7 +5,7 @@ cap = cv2.VideoCapture(0)
 
 ret, frame = cap.read()
 # 画像を保存する
-cv2.imwrite("image15.jpg", frame)
+cv2.imwrite("image11.jpg", frame)
 
 
 

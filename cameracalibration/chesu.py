@@ -20,7 +20,7 @@ objp = np.zeros((1, CHECKERBOARD[0]*CHECKERBOARD[1], 3), np.float32)
 objp[0,:,:2] = np.mgrid[0:CHECKERBOARD[0], 0:CHECKERBOARD[1]].T.reshape(-1, 2)
 prev_img_shape = None
 
-file_name = glob.glob('./calib_picture/*.jpg')[0]
+file_name = glob.glob('calibimage/*.jpg')[0]
 img = cv2.imread(file_name)
 gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
 
