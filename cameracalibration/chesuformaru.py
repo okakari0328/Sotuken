@@ -5,7 +5,7 @@ import glob
 from matplotlib import pyplot as plt
 
 # Defining the dimensions of checkerboard
-CHECKERBOARD = (7,10)
+CHECKERBOARD = (4,6)
 
 # termination criteria
 criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 30, 0.001)
@@ -20,7 +20,7 @@ objp = np.zeros((1, CHECKERBOARD[0]*CHECKERBOARD[1], 3), np.float32)
 objp[0,:,:2] = np.mgrid[0:CHECKERBOARD[0], 0:CHECKERBOARD[1]].T.reshape(-1, 2)
 prev_img_shape = None
 
-file_name = glob.glob('calibimageforgakki/*.jpg')[0]
+file_name = glob.glob('calibimageformaru/*.jpg')[0]
 img = cv2.imread(file_name)
 gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
 

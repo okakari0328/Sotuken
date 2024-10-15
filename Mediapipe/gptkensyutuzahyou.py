@@ -57,6 +57,7 @@ while cap.isOpened():
     # キー入力の処理
     key = cv2.waitKey(1) & 0xFF
     if key == ord('s'):
+        
         # 録画開始
         if not recording:
             out = cv2.VideoWriter('output.mp4', fourcc, fps, (frame_width, frame_height), True) #(image.shape[1], image.shape[0])
