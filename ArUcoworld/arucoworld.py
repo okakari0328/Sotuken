@@ -1,6 +1,6 @@
 import cv2
 import numpy as np
-
+import datetime
 
 camera_matrix = np.array([[806.02530003, 0, 311.20867267],
                           [0, 753.39260589, 241.68028089],
@@ -49,7 +49,12 @@ while True:
     cv2.imshow('frame', frame)
 
     # 'q'キーが押されたらループを終了
-    if cv2.waitKey(1) & 0xFF == ord('q'):
+    key = cv2.waitKey(1) & 0xFF
+    if key == ord('z'):
+        tintime = datetime.datetime.now()
+        filename = tintime.strftime('%Y%m%d_%H%M%S') + '.jpg'
+        cv2.imwrite(filename, frame)
+    if key == ord('q'):
         break
 
 # リソースを解放
