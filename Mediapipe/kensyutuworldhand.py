@@ -1,5 +1,6 @@
 import cv2
 import mediapipe as mp
+import datetime
 
 mp_hands = mp.solutions.hands
 mp_drawing = mp.solutions.drawing_utils
@@ -40,10 +41,13 @@ with mp_hands.Hands(
                     print(f'世界座標系 - Landmark {id}: (X: {int(lm.x * 1000)}, Y: {int(lm.y * 1000)}, Z: {int(lm.z * 1000)})')
                     #print('none')
 
-
-        cv2.imshow('Hand Tracking', image)
-
-        if cv2.waitKey(1) & 0xFF == 27:
+        key = cv2.waitKey(1) & 0xFF
+    # 'q'キーで終了
+        if key == ord('z'):
+            tintime = datetime.datetime.now()
+            filename = tintime.strftime('%Y%m%d_%H%M%S') + '.jpg'
+            cv2.imwrite(filename, frame)
+        elif key == ord('q'):
             break
 
 cap.release()

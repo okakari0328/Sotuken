@@ -1,13 +1,6 @@
 import cv2
 import mediapipe as mp
-import warnings
-import absl.logging
 
-# 警告メッセージの非表示設定
-warnings.filterwarnings('ignore')
-
-# abslのログを抑制
-absl.logging.set_verbosity(absl.logging.ERROR)
 
 # MediaPipeのHandsモジュールを初期化
 mp_hands = mp.solutions.hands
