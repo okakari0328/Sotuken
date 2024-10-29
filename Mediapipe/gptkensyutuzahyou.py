@@ -2,7 +2,7 @@
 #pip install mediapipe
 import cv2
 import mediapipe as mp
-
+import datetime
 # Mediapipeの初期化
 mp_hands = mp.solutions.hands
 hands = mp_hands.Hands()
@@ -49,7 +49,6 @@ while cap.isOpened():
                 print(f'Landmark {idx}: (x: {cx}, y: {cy}, z: {cz})')
                 #cx, cy = int(landmark.x * w), int(landmark.y * h)
                 #print(f'Landmark {idx}: (x: {cx}, y: {cy})')
-                cv2.putText(image, str(idx), (cx, cy), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 1, cv2.LINE_AA)
 
     # 結果の表示
     cv2.imshow('Hand Tracking', image)
@@ -57,17 +56,9 @@ while cap.isOpened():
     # キー入力の処理
     key = cv2.waitKey(1) & 0xFF
     if key == ord('s'):
-        # 録画開始
-        if not recording:
-            out = cv2.VideoWriter('output.mp4', fourcc, fps, (frame_width, frame_height), True) #(image.shape[1], image.shape[0])
-            recording = True
-            print("Recording started...")
-    elif key == ord('e'):
-        # 録画停止
-        if recording:
-            recording = False
-            out.release()
-            print("Recording stopped and saved as output.avi")
+        tintime = datetime.datetime.now()
+        filename = tintime.strftime('%Y%m%d_%H%M%S') + '.jpg'
+        cv2.imwrite(filename, image)
     elif key == 27:  # ESCキー
         break
 
