@@ -37,10 +37,11 @@ with mp_hands.Hands(
 
         if results.multi_hand_world_landmarks:
             for hand_world_landmarks in results.multi_hand_world_landmarks:
-                for id, lm in enumerate(hand_world_landmarks.landmark):
-                    print(f'世界座標系 - Landmark {id}: (X: {int(lm.x * 1000)}, Y: {int(lm.y * 1000)}, Z: {int(lm.z * 1000)})')
+                
+                    lm = hand_world_landmarks.landmark[4]
+                    print(f'世界座標系 - Landmark {4}: (X: {int(lm.x * 1000)}, Y: {int(lm.y * 1000)}, Z: {int(lm.z * 1000)})')
                     #print('none')
-
+                    #qprint(mp.HandLandmarkerResult())
         key = cv2.waitKey(1) & 0xFF
     # 'q'キーで終了
         if key == ord('z'):
