@@ -28,6 +28,8 @@ while cap.isOpened():
     # 画像を元のBGRに戻す
     image = cv2.cvtColor(far, cv2.COLOR_RGB2BGR)
 
+
+
     # 手のランドマークを描画し、座標を取得
     if results.multi_hand_landmarks:
         for hand_landmarks in results.multi_hand_landmarks:

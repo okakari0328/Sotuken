@@ -437,12 +437,9 @@ def draw_world_landmarks(
 
         ax_list[handedness_index].plot(palm_x, palm_y, palm_z)
         ax_list[handedness_index].plot(thumb_x, thumb_y, thumb_z)
-        ax_list[handedness_index].plot(index_finger_x, index_finger_y,
-                                       index_finger_z)
-        ax_list[handedness_index].plot(middle_finger_x, middle_finger_y,
-                                       middle_finger_z)
-        ax_list[handedness_index].plot(ring_finger_x, ring_finger_y,
-                                       ring_finger_z)
+        ax_list[handedness_index].plot(index_finger_x, index_finger_y,index_finger_z)
+        ax_list[handedness_index].plot(middle_finger_x, middle_finger_y,middle_finger_z)
+        ax_list[handedness_index].plot(ring_finger_x, ring_finger_y,ring_finger_z)
         ax_list[handedness_index].plot(pinky_x, pinky_y, pinky_z)
 
     plt.pause(.001)
