@@ -29,20 +29,21 @@ while True:
     if np.all(ids is not None):
         # 各マーカーを処理
         for i in range(len(ids)):
-            rvec, tvec, _objPoints = cv2.aruco.estimatePoseSingleMarkers(corners[i], 0.05, camera_matrix, dist_coeffs)
+            rvec, tvec, _objPoints = cv2.aruco.estimatePoseSingleMarkers(corners[i], 0.02, camera_matrix, dist_coeffs)
 
             # 画像座標系での2次元座標を表示
-            for corner in corners[i][0]:
+            #for corner in corners[i][0]:
                 #cv2.circle(frame, tuple(corner.astype(int)), 5, (0, 255, 0), 2)
-                print(f"2D Image Coordinates: {corner}")
+                #print(f"2D Image Coordinates: {corner}")
 
             # カメラ座標系での3次元座標を表示
-            #print(f"3D Camera Coordinates (tvec): {tvec[0][0]}")
-
+            print(f"3D Camera Coordinates (tvec): {tvec}")
+            rotation_matrix, _ = cv2.Rodrigues(rvec)
+            #print(f"3D Camera Coordinates (rvec): {rvec}")
             #print(f"3D Camera Coordinates (tvec): {_objPoints[0][0]}")
 
             #マーカーの軸を描画
-            cv2.drawFrameAxes(frame, camera_matrix, dist_coeffs, rvec, tvec, 0.1)
+            #cv2.drawFrameAxes(frame, camera_matrix, dist_coeffs, rvec, tvec, 0.1)
 
     # 検出されたマーカーの輪郭を描画
     cv2.aruco.drawDetectedMarkers(frame, corners, ids)
