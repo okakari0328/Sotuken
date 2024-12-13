@@ -29,7 +29,8 @@ with mp_hands.Hands(
     static_image_mode=False,
     max_num_hands=2,
     min_detection_confidence=0.5,
-    min_tracking_confidence=0.5) as hands:
+    min_tracking_confidence=0.5
+    ) as hands:
 
     while cap.isOpened():
         ret, frame = cap.read()
@@ -51,13 +52,13 @@ with mp_hands.Hands(
 
                     landmark_x[id] = int(landmark_x_tmp * wid)
                     landmark_y[id] = int(landmark_y_tmp * hei)
-
+                    
                     
                     print('x')
                     print(landmark_x)
                     print('y')
                     print(landmark_y)
-        
+
         cv2.imshow('media', image)
         key = cv2.waitKey(1) & 0xFF
     # 'q'キーで終了

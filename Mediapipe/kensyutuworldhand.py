@@ -10,6 +10,9 @@ mp_drawing_styles = mp.solutions.drawing_styles
 mp_hands = mp.solutions.hands
 cap = cv2.VideoCapture(0)
 
+landmark_x = [0] * 21
+landmark_y = [0] * 21
+landmark_z = [0] * 21
 with mp_hands.Hands(
     static_image_mode=False,
     max_num_hands=2,
@@ -42,12 +45,8 @@ with mp_hands.Hands(
                 '''
         if results.multi_hand_world_landmarks:
             for hand_world_landmarks in results.multi_hand_world_landmarks: 
-                print(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
-                print(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
-                '''
-                landmark_x = [0] * 21
-                landmark_y = [0] * 21
-                landmark_z = [0] * 21
+                
+
                 
                 for id, lm in enumerate(hand_world_landmarks.landmark):
                     landmark_x_tmp = hand_world_landmarks.landmark[id].x
@@ -61,7 +60,7 @@ with mp_hands.Hands(
                     print(landmark_y)
                     print(landmark_z)
                     
-                    
+                    '''
                     fig, ax = plt.subplots(figsize=(6, 6), subplot_kw={'projection': '3d'})
                     ax.scatter(landmark_x, landmark_y, landmark_z)
                     ax.set_xlabel("x")
