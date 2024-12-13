@@ -19,7 +19,7 @@ cx = 654.12634946
 cy = 385.3495122
 wid = 640
 hei = 480
-
+# 上の数字を使わず、先に計算した逆行列を利用してカメラ座標ベクトルを計算する
 
 #cap.set(cv2.CAP_PROP_FRAME_WIDTH, 720)
 #cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
